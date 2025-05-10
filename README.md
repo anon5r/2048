@@ -15,8 +15,8 @@ Join the numbers and get to the 2048 tile!
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v18 or higher recommend for Cloudflare Pages compatibility)
-- [pnpm](https://pnpm.io/) (v8 or higher recommended)
+- [Node.js](https://nodejs.org/) (v18.17.1 or higher required for Cloudflare Pages compatibility)
+- [pnpm](https://pnpm.io/) (v8.7.1 or higher required)
 
 ## Installation
 
@@ -116,7 +116,8 @@ This project uses GitHub Actions for continuous integration and deployment:
 
 This project is configured to deploy to Cloudflare Pages with the following configuration:
 
-- Node.js version: 18
+- Node.js version: 18.17.1
+- pnpm version: 8.7.1
 - Build command: `pnpm build`
 - Publish directory: `dist`
 
