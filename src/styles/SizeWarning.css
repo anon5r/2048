@@ -1,0 +1,73 @@
+/* SizeWarning.css - Styling for the size warning message */
+
+.size-warning {
+  position: relative;
+  margin-top: var(--game-container-margin-top);
+  padding: 20px;
+  background: var(--game-container-background);
+  border-radius: var(--grid-radius);
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.size-warning-container {
+  padding: 15px;
+  background-color: rgba(238, 228, 218, 0.35);
+  border-radius: var(--grid-radius);
+}
+
+.size-warning-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.size-warning-message {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.size-warning-details {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin-top: 15px;
+}
+
+/* Animation */
+.size-warning {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Media queries for very small screens */
+@media screen and (max-width: 320px) {
+  .size-warning {
+    max-width: 280px;
+    padding: 15px;
+  }
+  
+  .size-warning-title {
+    font-size: 18px;
+  }
+  
+  .size-warning-message {
+    font-size: 14px;
+  }
+  
+  .size-warning-details {
+    font-size: 12px;
+  }
+}

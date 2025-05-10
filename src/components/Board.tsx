@@ -1,6 +1,8 @@
 import React from 'react';
 import type { GameState } from '../game/Game2048';
 import '../styles/Board.css';
+import { useWindowSize } from '../hooks/useWindowSize';
+import SizeWarning from './SizeWarning';
 
 interface BoardProps {
   gameState: GameState;
@@ -9,6 +11,21 @@ interface BoardProps {
 const Board: React.FC<BoardProps> = ({ gameState }) => {
   const { board } = gameState;
   const size = board.length;
+  const { width, height } = useWindowSize();
+
+  // Calculate minimum dimensions based on the smallest tile size (from media queries)
+  // For screens under 300px, tile size is 50px and grid spacing is 5px
+  // const minBoardWidth = 4 * (50 + 5) + 5; // 4 tiles across + spacing
+  // const minBoardHeight = 4 * (50 + 5) + 5; // 4 tiles down + spacing
+
+  // Calculate the actual minimum dimensions needed
+  // Board width: 4 tiles of 50px each + 5 grid spacings of 5px each = 225px
+  // Board height: 4 tiles of 50px each + 5 grid spacings of 5px each = 225px
+  const minWidth = 225;
+  const minHeight = 225;
+
+  // Check if the window is too small
+  const isTooSmall = width < minWidth || height < minHeight;
 
   // Create the grid cells (empty background cells)
   const renderGridCells = () => {
@@ -58,16 +75,22 @@ const Board: React.FC<BoardProps> = ({ gameState }) => {
   };
 
   return (
-    <div className="board-container">
-      <div className="grid-container">
-        <div className="grid-background">
-          {renderGridCells()}
+    <>
+      {isTooSmall ? (
+        <SizeWarning minWidth={minWidth} minHeight={minHeight} />
+      ) : (
+        <div className="board-container">
+          <div className="grid-container">
+            <div className="grid-background">
+              {renderGridCells()}
+            </div>
+            <div className="tile-container">
+              {renderTiles()}
+            </div>
+          </div>
         </div>
-        <div className="tile-container">
-          {renderTiles()}
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

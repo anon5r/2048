@@ -41,17 +41,19 @@ function App() {
         onNewGame={startNewGame} 
       />
 
-      <Board gameState={gameState} />
+      <div className="board-wrapper">
+        <Board gameState={gameState} />
 
-      {gameState.over && (
-        <GameOver 
-          score={gameState.score} 
-          onRestart={startNewGame} 
-        />
-      )}
+        {gameState.over && (
+          <GameOver 
+            score={gameState.score} 
+            onRestart={startNewGame} 
+          />
+        )}
 
-      <div className="game-explanation">
-        <p><strong>HOW TO PLAY:</strong> Use your <strong>arrow keys</strong> on desktop or <strong>swipe</strong> on mobile to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong></p>
+        <div className="game-explanation">
+          <p><strong>HOW TO PLAY:</strong> Use your <strong>arrow keys</strong> on desktop or <strong>swipe</strong> on mobile to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong></p>
+        </div>
       </div>
     </div>
   )

@@ -29,14 +29,22 @@
   }
 }
 
+@media screen and (max-width: 300px) {
+  :root {
+    --tile-size: 50px;
+    --grid-spacing: 5px;
+    --game-container-margin-top: 20px;
+  }
+}
+
 .board-container {
   margin-top: var(--game-container-margin-top);
   position: relative;
   padding: var(--grid-spacing);
   background: var(--game-container-background);
   border-radius: var(--grid-radius);
-  width: calc(var(--grid-size) * (var(--tile-size) + var(--grid-spacing)) + var(--grid-spacing));
-  height: calc(var(--grid-size) * (var(--tile-size) + var(--grid-spacing)) + var(--grid-spacing));
+  width: calc(var(--grid-size) * (var(--tile-size) + var(--grid-spacing)) + (var(--grid-spacing) * 2));
+  height: calc(var(--grid-size) * (var(--tile-size) + var(--grid-spacing)) + (var(--grid-spacing) * 2));
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
