@@ -15,7 +15,7 @@ Join the numbers and get to the 2048 tile!
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v22 or higher recommended)
+- [Node.js](https://nodejs.org/) (v18 or higher recommend for Cloudflare Pages compatibility)
 - [pnpm](https://pnpm.io/) (v8 or higher recommended)
 
 ## Installation
@@ -100,7 +100,7 @@ When two tiles with the same number touch, they merge into one! Try to reach the
 
 ## Technologies Used
 
-- React 19
+- React 18
 - TypeScript
 - Vite
 - CSS3 with animations
@@ -113,6 +113,18 @@ This project uses GitHub Actions for continuous integration and deployment:
 - **Deployment Workflow**: When changes are pushed to the main branch and all tests pass, the application is automatically deployed to Cloudflare Pages.
 
 ### Setting up Cloudflare Pages Deployment
+
+This project is configured to deploy to Cloudflare Pages with the following configuration:
+
+- Node.js version: 18
+- Build command: `pnpm build`
+- Publish directory: `dist`
+
+The repository includes the following Cloudflare Pages configuration files:
+- `.cloudflare/pages.toml`: Configuration for Cloudflare Pages build settings
+- `public/_headers`: Security headers for the deployed application
+- `public/_redirects`: Routing configuration for the SPA
+- `public/_worker.js`: Cloudflare Worker for additional functionality
 
 To set up the Cloudflare Pages deployment, you need to add the following secrets to your GitHub repository:
 
