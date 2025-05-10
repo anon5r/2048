@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { Game2048, Direction } from '../../game/Game2048.ts';
+import type { TestGame2048 } from './TestGame2048';
 
 describe('Game2048', () => {
   let game: Game2048;
@@ -54,8 +55,8 @@ describe('Game2048', () => {
     // Create a game with a controlled board
     const mockGame = new Game2048();
 
-    // Access private state for testing (using any type assertion)
-    const gameAny = mockGame as any;
+    // Access private state for testing
+    const gameAny = mockGame as unknown as TestGame2048;
 
     // Set up a board with two adjacent tiles of the same value
     gameAny.state.board = Array(4).fill(null).map(() => Array(4).fill(null));
@@ -80,7 +81,7 @@ describe('Game2048', () => {
     const mockGame = new Game2048();
 
     // Access private state for testing
-    const gameAny = mockGame as any;
+    const gameAny = mockGame as unknown as TestGame2048;
 
     // Set up a board with one tile
     gameAny.state.board = Array(4).fill(null).map(() => Array(4).fill(null));
@@ -119,7 +120,7 @@ describe('Game2048', () => {
     const mockGame = new Game2048();
 
     // Access private state for testing
-    const gameAny = mockGame as any;
+    const gameAny = mockGame as unknown as TestGame2048;
 
     // Set up a board that is full and no merges are possible
     gameAny.state.board = Array(4).fill(null).map(() => Array(4).fill(null));
@@ -136,10 +137,10 @@ describe('Game2048', () => {
     for (let row = 0; row < 4; row++) {
       for (let col = 0; col < 4; col++) {
         if (col < 3) {
-          expect(gameAny.state.board[row][col].value).not.toBe(gameAny.state.board[row][col + 1].value);
+          expect(gameAny.state.board[row][col]!.value).not.toBe(gameAny.state.board[row][col + 1]!.value);
         }
         if (row < 3) {
-          expect(gameAny.state.board[row][col].value).not.toBe(gameAny.state.board[row + 1][col].value);
+          expect(gameAny.state.board[row][col]!.value).not.toBe(gameAny.state.board[row + 1][col]!.value);
         }
       }
     }
@@ -163,7 +164,7 @@ describe('Game2048', () => {
     const mockGame = new Game2048();
 
     // Access private state for testing
-    const gameAny = mockGame as any;
+    const gameAny = mockGame as unknown as TestGame2048;
 
     // Set up a board with two 1024 tiles next to each other
     gameAny.state.board = Array(4).fill(null).map(() => Array(4).fill(null));

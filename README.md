@@ -100,7 +100,7 @@ When two tiles with the same number touch, they merge into one! Try to reach the
 
 ## Technologies Used
 
-- React 18.2.0
+- React 19.1.0
 - TypeScript
 - Vite
 - CSS3 with animations
@@ -134,7 +134,7 @@ To set up the Cloudflare Pages deployment, you need to add the following secrets
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License—see the LICENSE file for details.
 
 ## Acknowledgments
 

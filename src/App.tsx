@@ -10,11 +10,6 @@ function App() {
   const [game] = useState(() => new Game2048())
   const [gameState, setGameState] = useState(game.getState())
 
-  // Start a new game when the component mounts
-  useEffect(() => {
-    startNewGame();
-  }, []);
-
   // Update the game state in the UI
   const updateGameState = useCallback(() => {
     setGameState({...game.getState()});
@@ -25,6 +20,11 @@ function App() {
     game.newGame();
     updateGameState();
   }, [game, updateGameState]);
+
+  // Start a new game when the component mounts
+  useEffect(() => {
+    startNewGame();
+  }, [startNewGame]);
 
   // Get touch controls
   const { handleTouchStart, handleTouchEnd, handleTouchMove } = useGameControls(game, updateGameState);
