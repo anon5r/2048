@@ -1,0 +1,184 @@
+/* Board.css - Styling for the 2048 game board and tiles */
+
+:root {
+  --grid-size: 4;
+  --tile-size: 100px;
+  --grid-spacing: 15px;
+  --grid-radius: 6px;
+  --text-light: #f9f6f2;
+  --text-dark: #776e65;
+  --grid-color: #bbada0;
+  --grid-cell-color: rgba(238, 228, 218, 0.35);
+  --game-container-margin-top: 40px;
+  --game-container-background: #bbada0;
+  --transition-speed: 100ms;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 520px) {
+  :root {
+    --tile-size: 65px;
+    --grid-spacing: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  :root {
+    --tile-size: 57px;
+    --grid-spacing: 8px;
+  }
+}
+
+.board-container {
+  margin-top: var(--game-container-margin-top);
+  position: relative;
+  padding: var(--grid-spacing);
+  background: var(--game-container-background);
+  border-radius: var(--grid-radius);
+  width: calc(var(--grid-size) * (var(--tile-size) + var(--grid-spacing)) + var(--grid-spacing));
+  height: calc(var(--grid-size) * (var(--tile-size) + var(--grid-spacing)) + var(--grid-spacing));
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.grid-container {
+  position: absolute;
+  z-index: 1;
+}
+
+.grid-background {
+  position: absolute;
+  z-index: 1;
+}
+
+.grid-cell {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  margin-right: var(--grid-spacing);
+  float: left;
+  border-radius: var(--grid-radius);
+  background: var(--grid-cell-color);
+  position: absolute;
+}
+
+.tile-container {
+  position: absolute;
+  z-index: 2;
+}
+
+.tile {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  position: absolute;
+  border-radius: var(--grid-radius);
+  transition: transform var(--transition-speed) ease-in-out, opacity var(--transition-speed) ease-in-out;
+}
+
+.tile-inner {
+  border-radius: var(--grid-radius);
+  background: #eee4da;
+  text-align: center;
+  font-weight: bold;
+  z-index: 10;
+  font-size: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Tile colors based on value */
+.tile-2 .tile-inner {
+  background: #eee4da;
+  color: var(--text-dark);
+}
+
+.tile-4 .tile-inner {
+  background: #ede0c8;
+  color: var(--text-dark);
+}
+
+.tile-8 .tile-inner {
+  background: #f2b179;
+  color: var(--text-light);
+}
+
+.tile-16 .tile-inner {
+  background: #f59563;
+  color: var(--text-light);
+}
+
+.tile-32 .tile-inner {
+  background: #f67c5f;
+  color: var(--text-light);
+}
+
+.tile-64 .tile-inner {
+  background: #f65e3b;
+  color: var(--text-light);
+}
+
+.tile-128 .tile-inner {
+  background: #edcf72;
+  color: var(--text-light);
+  font-size: 45px;
+}
+
+.tile-256 .tile-inner {
+  background: #edcc61;
+  color: var(--text-light);
+  font-size: 45px;
+}
+
+.tile-512 .tile-inner {
+  background: #edc850;
+  color: var(--text-light);
+  font-size: 45px;
+}
+
+.tile-1024 .tile-inner {
+  background: #edc53f;
+  color: var(--text-light);
+  font-size: 35px;
+}
+
+.tile-2048 .tile-inner {
+  background: #edc22e;
+  color: var(--text-light);
+  font-size: 35px;
+}
+
+/* Animations */
+.tile-new {
+  animation: appear 200ms ease-in-out;
+}
+
+.tile-merged {
+  z-index: 20;
+  animation: pop 200ms ease-in-out;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,54 +1,95 @@
-# React + TypeScript + Vite
+# 2048 Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern implementation of the classic 2048 puzzle game built with React, TypeScript, and Vite. Join the numbers and get to the 2048 tile!
 
-Currently, two official plugins are available:
+![2048 Game Screenshot](https://github.com/gabrielecirulli/2048/raw/master/meta/screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Smooth animations and transitions
+- Responsive design that works on desktop and mobile devices
+- Keyboard controls for desktop (arrow keys)
+- Touch/swipe controls for mobile devices
+- Social media sharing when game is over
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Prerequisites
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Before you begin, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v22 or higher recommended)
+- [pnpm](https://pnpm.io/) (v8 or higher recommended)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/puzzle-2024.git
+   cd puzzle-2024
+   ```
+
+2. Verify your pnpm setup (optional):
+   ```bash
+   ./verify-pnpm.sh
+   ```
+   or after cloning:
+   ```bash
+   pnpm verify
+   ```
+   This script checks if you have pnpm installed and if it meets the version requirements.
+
+3. Install dependencies using pnpm:
+   ```bash
+   pnpm install
+   ```
+
+## Running the Application
+
+### Development Mode
+
+To run the application in development mode with hot-reload:
+
+```bash
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This will start the development server at `http://localhost:5173` (or another port if 5173 is already in use).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Production Build
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+To create a production build:
+
+```bash
+pnpm build
 ```
+
+The built files will be in the `dist` directory.
+
+### Preview Production Build
+
+To preview the production build locally:
+
+```bash
+pnpm preview
+```
+
+## How to Play
+
+- **Desktop**: Use your arrow keys (↑, →, ↓, ←) to move the tiles.
+- **Mobile**: Swipe up, right, down, or left to move the tiles.
+
+When two tiles with the same number touch, they merge into one! Try to reach the 2048 tile.
+
+## Technologies Used
+
+- React 19
+- TypeScript
+- Vite
+- CSS3 with animations
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Original 2048 game by [Gabriele Cirulli](https://github.com/gabrielecirulli/2048)
+- Inspired by [1024 by Veewo Studio](https://itunes.apple.com/us/app/1024!/id823499224)

@@ -1,0 +1,141 @@
+/* GameOver.css - Styling for the game over screen */
+
+.game-over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(238, 228, 218, 0.73);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.game-over-container {
+  background-color: white;
+  border-radius: 6px;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 90%;
+  width: 400px;
+}
+
+.game-over-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: #776e65;
+  margin: 0 0 20px 0;
+}
+
+.game-over-score {
+  font-size: 24px;
+  color: #776e65;
+  margin-bottom: 30px;
+}
+
+.share-container {
+  margin-bottom: 30px;
+}
+
+.share-text {
+  font-size: 18px;
+  color: #776e65;
+  margin-bottom: 15px;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.share-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.share-button.twitter {
+  background-color: #1DA1F2;
+}
+
+.share-button.twitter:hover {
+  background-color: #0c85d0;
+}
+
+.share-button.facebook {
+  background-color: #4267B2;
+}
+
+.share-button.facebook:hover {
+  background-color: #365899;
+}
+
+.share-button.line {
+  background-color: #06C755;
+}
+
+.share-button.line:hover {
+  background-color: #05a847;
+}
+
+.restart-button {
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.restart-button:hover {
+  background: #9f8b77;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 520px) {
+  .game-over-title {
+    font-size: 30px;
+  }
+  
+  .game-over-score {
+    font-size: 20px;
+  }
+  
+  .share-text {
+    font-size: 16px;
+  }
+  
+  .share-button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  
+  .restart-button {
+    padding: 8px 15px;
+    font-size: 16px;
+  }
+}

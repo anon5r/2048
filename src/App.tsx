@@ -1,34 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect, useCallback } from 'react'
 import './App.css'
+import { Game2048 } from './game/Game2048'
+import Board from './components/Board'
+import Header from './components/Header'
+import GameOver from './components/GameOver'
+import { useGameControls } from './hooks/useGameControls'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [game] = useState(() => new Game2048())
+  const [gameState, setGameState] = useState(game.getState())
+
+  // Start a new game when the component mounts
+  useEffect(() => {
+    startNewGame();
+  }, []);
+
+  // Update the game state in the UI
+  const updateGameState = useCallback(() => {
+    setGameState({...game.getState()});
+  }, [game]);
+
+  // Start a new game
+  const startNewGame = useCallback(() => {
+    game.newGame();
+    updateGameState();
+  }, [game, updateGameState]);
+
+  // Get touch controls
+  const { handleTouchStart, handleTouchEnd, handleTouchMove } = useGameControls(game, updateGameState);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div 
+      className="app-container"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+    >
+      <Header 
+        score={gameState.score} 
+        onNewGame={startNewGame} 
+      />
+
+      <Board gameState={gameState} />
+
+      {gameState.over && (
+        <GameOver 
+          score={gameState.score} 
+          onRestart={startNewGame} 
+        />
+      )}
+
+      <div className="game-explanation">
+        <p><strong>HOW TO PLAY:</strong> Use your <strong>arrow keys</strong> on desktop or <strong>swipe</strong> on mobile to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong></p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
