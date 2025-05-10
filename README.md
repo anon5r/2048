@@ -100,7 +100,7 @@ When two tiles with the same number touch, they merge into one! Try to reach the
 
 ## Technologies Used
 
-- React 19.1
+- React 18.2.0
 - TypeScript
 - Vite
 - CSS3 with animations
