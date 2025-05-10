@@ -1,8 +1,8 @@
 # 2048 Game
 
-A modern implementation of the classic 2048 puzzle game built with React, TypeScript, and Vite. Join the numbers and get to the 2048 tile!
+A modern implementation of the classic 2048 puzzle game built with React, TypeScript, and Vite.
+Join the numbers and get to the 2048 tile!
 
-![2048 Game Screenshot](https://github.com/gabrielecirulli/2048/raw/master/meta/screenshot.png)
 
 ## Features
 
@@ -53,6 +53,26 @@ pnpm dev
 
 This will start the development server at `http://localhost:5173` (or another port if 5173 is already in use).
 
+### Testing
+
+To run the tests:
+
+```bash
+pnpm test
+```
+
+To run the tests in watch mode:
+
+```bash
+pnpm test:watch
+```
+
+To run the tests with coverage:
+
+```bash
+pnpm test:coverage
+```
+
 ### Production Build
 
 To create a production build:
@@ -85,6 +105,20 @@ When two tiles with the same number touch, they merge into one! Try to reach the
 - Vite
 - CSS3 with animations
 
+## CI/CD
+
+This project uses GitHub Actions for continuous integration and deployment:
+
+- **CI Workflow**: On every push, GitHub Actions runs linting, tests, and builds the project to ensure everything is working correctly.
+- **Deployment Workflow**: When changes are pushed to the main branch and all tests pass, the application is automatically deployed to Cloudflare Pages.
+
+### Setting up Cloudflare Pages Deployment
+
+To set up the Cloudflare Pages deployment, you need to add the following secrets to your GitHub repository:
+
+- `CLOUDFLARE_API_TOKEN`: Your Cloudflare API token with Pages permissions
+- `CLOUDFLARE_ACCOUNT_ID`: Your Cloudflare account ID
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -93,3 +127,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Original 2048 game by [Gabriele Cirulli](https://github.com/gabrielecirulli/2048)
 - Inspired by [1024 by Veewo Studio](https://itunes.apple.com/us/app/1024!/id823499224)
+
+## Note
+
+This project was created by [JetBrains Junie](https://www.jetbrains.com/junie/).

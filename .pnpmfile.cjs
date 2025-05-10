@@ -7,7 +7,7 @@ module.exports = {
     readPackage(pkg) {
       // Add engines field if it doesn't exist
       if (!pkg.engines) {
-        pkg.engines = { node: '>=22.0.0', pnpm: '>=8.0.0' };
+        pkg.engines = { node: '>=22.0.0', pnpm: '>=10.0.0' };
       }
       return pkg;
     },

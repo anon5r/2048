@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- 背景 -->
+    <rect x="10" y="10" width="180" height="180" rx="15" ry="15" fill="#faf8ef" stroke="#bbada0" stroke-width="4"/>
+
+    <!-- タイル2 -->
+    <g transform="translate(30, 30)">
+        <rect width="60" height="60" rx="5" ry="5" fill="#eee4da" />
+        <text x="30" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#776e65">2</text>
+    </g>
+
+    <!-- タイル4 -->
+    <g transform="translate(100, 30)">
+        <rect width="60" height="60" rx="5" ry="5" fill="#ede0c8" />
+        <text x="30" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#776e65">4</text>
+    </g>
+
+    <!-- タイル8 -->
+    <g transform="translate(30, 100)">
+        <rect width="60" height="60" rx="5" ry="5" fill="#f2b179" />
+        <text x="30" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#f9f6f2">8</text>
+    </g>
+
+    <!-- タイル2048 -->
+    <g transform="translate(100, 100)">
+        <rect width="60" height="60" rx="5" ry="5" fill="#edc22e" />
+        <text x="30" y="38" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#f9f6f2">2048</text>
+    </g>
+
+    <!-- スパークエフェクト - 2048ブロックの下に配置 -->
+    <g transform="translate(130, 130)">
+        <!-- 放射状のスパーク -->
+        <g stroke="#f7d774" stroke-width="2" opacity="0.8">
+            <path d="M-30,-30 L-15,-15" stroke-linecap="round"/>
+            <path d="M-35,-10 L-15,-5" stroke-linecap="round"/>
+            <path d="M-30,20 L-15,10" stroke-linecap="round"/>
+            <path d="M10,30 L5,15" stroke-linecap="round"/>
+            <path d="M30,25 L15,12" stroke-linecap="round"/>
+            <path d="M35,0 L17,0" stroke-linecap="round"/>
+            <path d="M30,-25 L15,-12" stroke-linecap="round"/>
+            <path d="M0,-35 L0,-17" stroke-linecap="round"/>
+        </g>
+        <!-- キラキラ小星 -->
+        <g fill="#ffea92">
+            <circle cx="-25" cy="-25" r="2" />
+            <circle cx="25" cy="-25" r="1.5" />
+            <circle cx="-30" cy="5" r="1.8" />
+            <circle cx="25" cy="25" r="2" />
+            <circle cx="0" cy="30" r="1.5" />
+            <circle cx="-20" cy="20" r="1.2" />
+        </g>
+    </g>
+</svg>
